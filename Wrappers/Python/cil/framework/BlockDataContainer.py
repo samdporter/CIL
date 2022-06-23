@@ -490,6 +490,10 @@ class BlockDataContainer(object):
         else:
             return ValueError('Cannot fill with object provided {}'.format(type(other)))
     
+    def allocateBDC(self, value=0):
+        for im in self:
+            im = im.allocate(value)
+    
     def __add__(self, other):
         return self.add( other )
     # __radd__
